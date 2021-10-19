@@ -11,16 +11,19 @@ public class MyFirstScript : MonoBehaviour
     [SerializeField] private bool gameOver;
     
 
-    public int x = 5;
-    public int y = 2;
-
     public float a = 5f;
     public float b = 2f;
 
-    public bool isRaining = false;
+    
     */
 
     public int playerAge = 35;
+
+    public int x = 5;
+    public int y = 2;
+
+    public bool isRaining = false;
+    public bool isCold;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +51,6 @@ public class MyFirstScript : MonoBehaviour
         {
             Debug.Log("No llueve. No lleves paraguas.");
         }
-        */
 
         if(playerAge >= 18)
         {
@@ -62,7 +64,52 @@ public class MyFirstScript : MonoBehaviour
         {
             Debug.Log("Eres un niño");
         }
+       
 
+        if (x == 2 && y <= 5)
+        {
+            Debug.Log("01. Verdadero");
+        }
+        else
+        {
+            Debug.Log("01. Falso");
+        }
+
+
+        if (x == 2 || y <= 5)
+        {
+            Debug.Log("02. Verdadero");
+        }
+        else
+        {
+            Debug.Log("02. Falso");
+        }
+
+         */
+
+        if (isRaining)
+        {
+            if (isCold)
+            {
+                Debug.Log("Lleva paraguas y sudadera");
+            }
+            else
+            {
+                Debug.Log("Lleva paraguas");
+            }
+
+        }
+        else
+        {
+            if (isCold)
+            {
+                Debug.Log("Lleva una sudadera");
+            }
+            else
+            {
+                Debug.Log("Disfruta del día");
+            }
+        }
 
 
 
