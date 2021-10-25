@@ -331,11 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9bd599b15683c4d899a35bfc55d327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAge: 35
-  x: 0
-  y: 0
-  isRaining: 1
-  isCold: 1
+  myPosition: {x: 2, y: 1, z: 3}
 --- !u!65 &1921650882
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -406,7 +402,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921650880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5862007, y: 0.88019943, z: 5.289319}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

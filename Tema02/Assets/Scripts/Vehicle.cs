@@ -51,7 +51,7 @@ public class Vehicle : MonoBehaviour
         {
             Debug.Log($"{name} no está en marcha");
         }
-        */
+        
 
 
         if (isOn)
@@ -75,11 +75,35 @@ public class Vehicle : MonoBehaviour
             Debug.Log($"{name} no está en marcha");
         }
 
+        */
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isOn)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                transform.position += Vector3.forward;
+            }
 
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                transform.position += Vector3.back;
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                transform.position += Vector3.left;
+            }
+
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                transform.position += Vector3.right;
+            }
+
+        }
     }
 }
