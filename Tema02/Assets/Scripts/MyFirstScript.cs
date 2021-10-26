@@ -15,12 +15,14 @@ public class MyFirstScript : MonoBehaviour
 
     public int playerAge = 35;
 
-    public int x = 5;
-    public int y = 2;
+
 
     public bool isRaining = false;
     public bool isCold;
      */
+
+    public int x = 5;
+    public int y = 2;
 
     public Vector3 myPosition = new Vector3(2, 1, 3);
     public string hello;
@@ -43,6 +45,8 @@ public class MyFirstScript : MonoBehaviour
         //transform.position = Vector3.zero;
 
         Debug.Log(transform.position);
+
+        ReturnProducto(x,y);
 
 
         /*
@@ -140,61 +144,23 @@ public class MyFirstScript : MonoBehaviour
 
 
         // Mueve la posición con las teclas WASD 
-        if (Input.GetKeyDown(KeyCode.D))
-
-        {
-            transform.position += Vector3.right;
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
-
-        {
-            transform.position += Vector3.left;
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-
-        {
-            transform.position += Vector3.forward;
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-
-        {
-            transform.position += Vector3.back;
-        }
+        MovementToDirection(KeyCode.D, Vector3.right);
+        MovementToDirection(KeyCode.A, Vector3.left);
+        MovementToDirection(KeyCode.W, Vector3.forward);
+        MovementToDirection(KeyCode.S, Vector3.back);
+        MovementToDirection(KeyCode.E, Vector3.up);
+        MovementToDirection(KeyCode.Q, Vector3.down);
 
         // Cambia la rotación
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        RotationToDirection(KeyCode.RightArrow, new Vector3(0, 10, 0));
+        RotationToDirection(KeyCode.LeftArrow, new Vector3(0, -10, 0));
+        RotationToDirection(KeyCode.UpArrow, new Vector3(10, 0, 0));
+        RotationToDirection(KeyCode.DownArrow, new Vector3(-10, 0, 0));
 
-        {
-            transform.rotation *= Quaternion.Euler(0, 10, 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-
-        {
-            transform.rotation *= Quaternion.Euler(0, -10, 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-
-        {
-            transform.rotation *= Quaternion.Euler(10, 0, 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-
-        {
-            transform.rotation *= Quaternion.Euler(-10, 0, 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            transform.localScale += Vector3.right;
-        }
-
-
+        // Cambia la escala
+        ScaleToDirection(KeyCode.X, Vector3.right);
+        ScaleToDirection(KeyCode.Y, Vector3.up);
+        ScaleToDirection(KeyCode.Z, Vector3.forward);
 
     }
 
@@ -209,15 +175,37 @@ public class MyFirstScript : MonoBehaviour
         return "¡Hola!";
     }
 
-    public void moveObject(KeyCode a, Vector3 b)
+    public void MovementToDirection(KeyCode key, Vector3 direction)
     {
-
-        if (Input.GetKeyDown(a))
-
+        if (Input.GetKeyDown(key))
         {
-            transform.position += b;
+            transform.position += direction;
         }
+    }
 
+    public void ScaleToDirection(KeyCode key, Vector3 axis)
+    {
+        if (Input.GetKeyDown(key))
+        {
+            transform.localScale += axis;
+        }
+    }
+
+    public void RotationToDirection(KeyCode key, Vector3 axis)
+    {
+        if (Input.GetKeyDown(key))
+        {
+            transform.rotation *= Quaternion.Euler(axis);
+        }
+    }
+
+
+    public int ReturnProducto(int x, int y)
+    {
+        int result = x * y;
+        Debug.Log($"{x} * {y} = {result}");
+
+        return result;
     }
 
 }
