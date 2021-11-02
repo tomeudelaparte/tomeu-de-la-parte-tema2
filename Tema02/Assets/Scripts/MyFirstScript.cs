@@ -161,7 +161,6 @@ public class MyFirstScript : MonoBehaviour
         ScaleToDirection(KeyCode.X, Vector3.right);
         ScaleToDirection(KeyCode.Y, Vector3.up);
         ScaleToDirection(KeyCode.Z, Vector3.forward);
-
     }
 
 
